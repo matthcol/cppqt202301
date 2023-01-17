@@ -14,65 +14,13 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="btn_register">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>260</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Register</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_joke">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>260</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Joke</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_add_langs">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>260</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add Langs</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_clear_langs">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>260</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Clear Langs</string>
-    </property>
-   </widget>
    <widget class="QListView" name="lv_alllangs">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>50</y>
+      <x>260</x>
+      <y>10</y>
       <width>91</width>
-      <height>192</height>
+      <height>211</height>
      </rect>
     </property>
    </widget>
@@ -81,12 +29,12 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>211</width>
+      <width>231</width>
       <height>211</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::Box</enum>
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
@@ -94,7 +42,7 @@
     <widget class="QWidget" name="formLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>16</x>
        <y>10</y>
        <width>201</width>
        <height>191</height>
@@ -168,6 +116,78 @@
      </layout>
     </widget>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>230</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_register">
+       <property name="text">
+        <string>Register</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_joke">
+       <property name="text">
+        <string>Joke</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_add_langs">
+       <property name="text">
+        <string>Add Langs</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_clear_langs">
+       <property name="text">
+        <string>Clear Langs</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="ViewPersonsFrame" name="frm_persons">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>321</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="ViewPersonDetailFrame" name="frm_viewPersonDetail">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>280</y>
+      <width>391</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -181,6 +201,20 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ViewPersonsFrame</class>
+   <extends>QFrame</extends>
+   <header>viewpersonsframe.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ViewPersonDetailFrame</class>
+   <extends>QFrame</extends>
+   <header>viewpersondetailframe.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

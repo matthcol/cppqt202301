@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QStringListModel>
+#include "personlistmodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
+    PersonListModel *personListModel() const;
+    void setPersonListModel(PersonListModel *newPersonListModel);
+
 private slots:
     void on_btn_register_clicked();
 
@@ -28,5 +34,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QStringListModel *langListModel;
+    PersonListModel *m_personListModel;
 };
 #endif // MAINWINDOW_H

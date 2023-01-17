@@ -2,13 +2,16 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <QStringListModel>
+#include "person.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // additional settings of UI here
+
+    // model settings
+
     // 1. Combo Box: langs
     langListModel = new QStringListModel();
     QStringList langList;
@@ -19,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     QStringList allLangList = {"FR", "EN", "JP", "FI", "FJ" };
     QStringListModel *allLangListModel = new QStringListModel(allLangList);
     ui->lv_alllangs->setModel(allLangListModel);
+
+    // signal/slot connections
+    //connect(ui->frm_persons, , ui->frm_viewPersonDetail, )
 }
 
 MainWindow::~MainWindow()
@@ -44,6 +50,9 @@ void MainWindow::on_btn_register_clicked()
              << " (choix " << ui->cb_lang->currentIndex()
              << " ; data = " << ui->cb_lang->currentData(Qt::DisplayRole)
              << ")";
+    Person *person = new Person(lastname, firstname, level, birthdate, lang);
+    m_personListModel->addPerson(person);
+    qDebug() << "Person registered: " << *person;
 }
 
 
@@ -85,4 +94,16 @@ void MainWindow::on_btn_clear_langs_clicked()
 {
     ui->cb_lang->clear();
 }
+
+PersonListModel *MainWindow::personListModel() const
+{
+    return m_personListModel;
+}
+
+void MainWindow::setPersonListModel(PersonListModel *newPersonListModel)
+{
+    m_personListModel = newPersonListModel;
+    ui->frm_persons->setPersonListModel(newPersonListModel);
+}
+
 

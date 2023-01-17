@@ -11,13 +11,25 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    person.cpp \
+    personlistmodel.cpp \
+    plane.cpp \
+    viewpersondetailframe.cpp \
+    viewpersonsframe.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    person.h \
+    personlistmodel.h \
+    plane.h \
+    viewpersondetailframe.h \
+    viewpersonsframe.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    viewpersondetailframe.ui \
+    viewpersonsframe.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
