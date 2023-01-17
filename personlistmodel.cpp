@@ -15,10 +15,13 @@ QVariant PersonListModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return QVariant();
+    const Person *person = m_personList[index.row()];
     switch (role) {
-    case Qt::DisplayRole:
-        const Person *person = m_personList[index.row()];
-        return QVariant(person->toString());
+        case Qt::DisplayRole:
+            return QVariant(person->toString()); // return person->toString();
+        case Qt::EditRole:{
+            return QVariant::fromValue(person);
+        }
     }
     return QVariant();
 }

@@ -45,4 +45,6 @@ private:
 
 QDebug &operator<<(QDebug &out, const Person &person);
 
+Q_DECLARE_METATYPE(const Person*)
+
 #endif // PERSON_H

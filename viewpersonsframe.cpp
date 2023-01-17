@@ -28,3 +28,19 @@ QListView *ViewPersonsFrame::personListView() const
 {
     return ui->lv_persons;
 }
+
+void ViewPersonsFrame::on_lv_persons_clicked(const QModelIndex &index)
+{
+    if (!index.isValid()) return;
+    QVariant persontVariant = ui->lv_persons
+            ->model()
+            ->data(index, Qt::EditRole);
+    // TODO: check if variant not empty
+    const Person *person = persontVariant.value<const Person *>();
+    qDebug() << "A person has been selected at index "
+             << index.row()
+             << " : "
+             << *person;
+    emit personSelected(person);
+}
+

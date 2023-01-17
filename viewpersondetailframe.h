@@ -17,7 +17,7 @@ public:
     ~ViewPersonDetailFrame();
 
 public slots:
-    void viewPerson(const Person& person);
+    void viewPerson(const Person* person);
 
 private:
     Ui::ViewPersonDetailFrame *ui;

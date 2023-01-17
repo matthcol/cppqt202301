@@ -13,7 +13,9 @@ ViewPersonDetailFrame::~ViewPersonDetailFrame()
     delete ui;
 }
 
-void ViewPersonDetailFrame::viewPerson(const Person &person)
+void ViewPersonDetailFrame::viewPerson(const Person *person)
 {
-    ui->lbl_currentPerson->setText(person.toString());
+    if (person==nullptr) return;
+    qDebug() << "Detail: person received: " << *person;
+    ui->lbl_currentPerson->setText(person->toString());
 }

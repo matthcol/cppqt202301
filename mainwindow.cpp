@@ -24,7 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lv_alllangs->setModel(allLangListModel);
 
     // signal/slot connections
-    //connect(ui->frm_persons, , ui->frm_viewPersonDetail, )
+    connect(ui->frm_persons,
+            SIGNAL(personSelected(const Person*)),
+            ui->frm_viewPersonDetail,
+            SLOT(viewPerson(const Person*)));
 }
 
 MainWindow::~MainWindow()
