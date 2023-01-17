@@ -9,6 +9,7 @@
 class Person: public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString lang READ lang WRITE setLang NOTIFY langChanged)
 
 public:
     explicit Person(QObject *parent = nullptr);
@@ -40,11 +41,10 @@ private:
     qint32 m_level;
     QDate m_birthdate;
     QString m_lang;
-    Q_PROPERTY(QString lang READ lang WRITE setLang NOTIFY langChanged)
 };
 
 QDebug &operator<<(QDebug &out, const Person &person);
 
-Q_DECLARE_METATYPE(const Person*)
+Q_DECLARE_METATYPE(Person*)
 
 #endif // PERSON_H

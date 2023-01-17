@@ -36,7 +36,7 @@ void ViewPersonsFrame::on_lv_persons_clicked(const QModelIndex &index)
             ->model()
             ->data(index, Qt::EditRole);
     // TODO: check if variant not empty
-    const Person *person = persontVariant.value<const Person *>();
+    Person *person = persontVariant.value<Person *>();
     qDebug() << "A person has been selected at index "
              << index.row()
              << " : "
