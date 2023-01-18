@@ -22,7 +22,7 @@ public:
     QListView *personListView() const;
 
 signals:
-    void personSelected(const Person *person);
+    void personSelected(Person *person);
 
 private slots:
     void on_lv_persons_clicked(const QModelIndex &index);

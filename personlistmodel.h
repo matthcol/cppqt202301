@@ -20,6 +20,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     void addPerson(Person *person);
+    bool loadFromJSon(QString filename);
+    void saveToJson(QString filename);
 
 private:
     QList<Person*> m_personList;

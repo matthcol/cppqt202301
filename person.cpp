@@ -1,4 +1,5 @@
 #include "person.h"
+#include <QJsonValue>
 
 Person::Person(QObject *parent): QObject(parent)
 {
@@ -77,6 +78,27 @@ QString Person::toString() const
 {
     return QString("%1 %2 (%3)")
             .arg(m_lastname, m_firstname, m_lang);
+}
+
+Person *Person::fromJson(const QJsonObject &personJson)
+{
+    QJsonValue lastnameJsonValue = personJson["lastname"];
+    if (!lastnameJsonValue.isString()) return nullptr;
+    QString lastname = lastnameJsonValue.toString();
+    QJsonValue firstnameJsonValue = personJson["firstname"];
+    if (!firstnameJsonValue.isString()) return nullptr;
+    QString firstname = firstnameJsonValue.toString();
+    QJsonValue levelJsonValue = personJson["level"];
+    if (!levelJsonValue.isDouble()) return nullptr;
+    int level = levelJsonValue.toInt();
+    QJsonValue birthdateJsonValue = personJson["birthdate"];
+    if (!birthdateJsonValue.isString()) return nullptr;
+    QDate birthdate = QDate::fromString(birthdateJsonValue.toString(), Qt::ISODate);
+    if (!birthdate.isValid()) return nullptr;
+    QJsonValue langJsonValue = personJson["lang"];
+    if (!langJsonValue.isString()) return nullptr;
+    QString lang = langJsonValue.toString();
+    return new Person(lastname, firstname, level, birthdate, lang);
 }
 
 QDebug &operator<<(QDebug &out, const Person &person){

@@ -5,6 +5,7 @@
 #include <QString>
 #include <QDate>
 #include <QDebug>
+#include <QJsonObject>
 
 class Person: public QObject
 {
@@ -31,6 +32,8 @@ public:
     QString lang() const;
     void setLang(const QString &newLang);
     QString toString() const;
+
+    static Person *fromJson(const QJsonObject &personJson);
 
 signals:
     void langChanged();

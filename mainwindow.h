@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QStringListModel>
+#include <QCloseEvent>
+#include <QMessageBox>
 #include "personlistmodel.h"
 
 QT_BEGIN_NAMESPACE
@@ -31,9 +33,21 @@ private slots:
 
     void on_btn_clear_langs_clicked();
 
+    void on_actionQuit_triggered();
+
+    void on_actionOpen_triggered();
+
+    void on_actionSave_triggered();
+
 private:
     Ui::MainWindow *ui;
     QStringListModel *langListModel;
     PersonListModel *m_personListModel;
+
+    QMessageBox::StandardButton confirmQuitDialog();
+
+    // QWidget interface
+protected:
+    void closeEvent(QCloseEvent *event) override;
 };
 #endif // MAINWINDOW_H
